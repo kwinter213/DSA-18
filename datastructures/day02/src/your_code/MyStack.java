@@ -36,7 +36,16 @@ public class MyStack implements StackADT<Integer> {
     }
 
     public Integer maxElement() {
-        // TODO
-        return 0;
+        LinkedList<Integer> temp0=new LinkedList<Integer>();
+        int max = ll.peek(); //setting max to the value of the first element
+        while(ll.size()>0){
+            int temp=ll.removeFirst();
+            if(temp>max){
+                max=temp;
+            }
+            temp0.addLast(temp);
+        }
+        ll=temp0;
+        return max;
     }
 }

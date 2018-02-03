@@ -4,11 +4,11 @@ public class MyArrayList {
 
     // Runtime: O(1) (this is O(10), because this is the runtime no matter what the input.
     public MyArrayList() {
-        elems=new Cow[9];
+        elems=new Cow[10];
         size=0;
     }
 
-    // Runtime: O(N) (this is O(N), because it is bounded by the size of "capacity")
+    // Runtime: O(1)
     public MyArrayList(int capacity) {
         elems= new Cow[capacity];
         size=0;
@@ -68,25 +68,26 @@ public class MyArrayList {
                 tempCow = tempCow2;
             }
             size=size+1;
-        }   else
-                throw new IndexOutOfBoundsException();
+        }
+        else
+            throw new IndexOutOfBoundsException();
 
     }
 
 
     //Runtime O(N)
     public void increaseSize(){ //increases capacity by double
-        if(elems.length/2>1) {
             Cow[] elemsTemp = new Cow[elems.length * 2];
             System.arraycopy(elems, 0, elemsTemp, 0, size);
             elems = elemsTemp;
-        }
     }
 
     //Runtime O(N)
     public void decreaseSize(){ //decreases capacity to be half size
-        Cow[] elemsTemp=new Cow[elems.length/2];
-        System.arraycopy(elems,0,elemsTemp, 0, size);
-        elems=elemsTemp;
+        if(elems.length/2>1) {
+            Cow[] elemsTemp = new Cow[elems.length / 2];
+            System.arraycopy(elems, 0, elemsTemp, 0, size);
+            elems = elemsTemp;
+        }
     }
 }
