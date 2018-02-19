@@ -13,6 +13,7 @@ public class SortTest {
     private int[] twoCase;
     private int[] fastCase;
     private int[] slowCase;
+    private int[] fiveCase;
 
     private final int RANGE = 100;
 
@@ -21,6 +22,7 @@ public class SortTest {
         emptyCase = generateRandomArrayOfSize(0);
         oneCase = generateRandomArrayOfSize(1);
         twoCase = generateRandomArrayOfSize(2);
+        fiveCase = generateRandomArrayOfSize(5);
         fastCase = generateRandomArrayOfSize(1000);
         slowCase = generateRandomArrayOfSize(100000);
     }
@@ -39,6 +41,7 @@ public class SortTest {
         assertArrayEquals(sorter.sort(emptyCase), emptyCase);
         assertArrayEquals(sorter.sort(oneCase), sort(oneCase));
         assertArrayEquals(sorter.sort(twoCase), sort(twoCase));
+        assertArrayEquals(sorter.sort(fiveCase), sort(fiveCase));
         assertArrayEquals(sorter.sort(fastCase), sort(fastCase));
         assertArrayEquals(sorter.sort(slowCase), sort(slowCase));
     }
